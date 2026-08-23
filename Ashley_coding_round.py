@@ -1,44 +1,39 @@
 password = input()
 score = 0
-failed=[]
+failed = []
 
-if len(password)>=8:
-    score+=1
+if len(password) >= 8:
+  score += 1
 else:
-    failed.append("length")
+  failed.append("length")
+
 if any(ch.isupper() for ch in password):
-    score+=1
+  score += 1
 else:
-    failed.append("uppercase")
+  failed.append("uppercase")
+
 if any(ch.islower() for ch in password):
-    score+=1
+  score += 1
 else:
-    failed.append("lowercase")
+  failed.append("lowercase")
+
 if any(ch.isdigit() for ch in password):
-    score+=1
+  score += 1
 else:
-    failed.append("digit")
+  failed.append("digit")
 
-special="!@#$%^&*()_+-=[]{};:'",.<>|~"
-
+special = "!@#$%^&*()_+-=[]{};:'\",.<>|~"
 if any(ch in special for ch in password):
-    score+=1
+  score += 1
 else:
-    failed.append("special")
+  failed.append("special")
+
 if " " not in password:
-    score+=1
+  score += 1
 else:
-    failed.append("Space")
-if score==6:
-    print("Valid score:6")
+  failed.append("Space")
+
+if score == 6:
+  print("Valid score:6")
 else:
-    print("InValid :" + ",".join(failed) + "score:" + str(score)) 
-
-
-
-
-
-
-
-    
-
+  print("InValid :" + ",".join(failed) + " score:" + str(score))
